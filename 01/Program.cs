@@ -1,6 +1,5 @@
 ﻿Console.WriteLine("ingrese la cantidad de estudiantes a registrar: ");
 int.TryParse(Console.ReadLine(), out int lim);
-Console.WriteLine(lim);
 List<Estudiante>estudiantes = new List<Estudiante>();
 if (lim > 0)
 {
@@ -25,7 +24,7 @@ if (lim > 0)
         }
     }
     Console.WriteLine($"el promedio total es: {sumapromedio/estudiantes.Count}");
-    Console.WriteLine("mejor estudiante es: ");
+    Console.WriteLine("mejor estudiante es: "+mejor.nombre);
     mejor.Mostrar();
 }
 else
