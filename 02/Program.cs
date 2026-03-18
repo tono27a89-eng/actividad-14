@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel;
-Console.WriteLine("ingrese la cantidad de productos a Registrar: ");
-int.TryParse(Console.ReadLine(), out int lim);
+
 bool validar= false;
 List<Producto>productos=new List<Producto>();
 while (validar != true)
 {
+    Console.WriteLine("ingrese la cantidad de productos a Registrar: ");
+    int.TryParse(Console.ReadLine(), out int lim);
     if (lim > 0)
     {
         validar = true;
