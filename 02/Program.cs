@@ -23,10 +23,10 @@ while (validar != true)
         {
             p.mostrar();
             totalinv += p.cantidad;
-            if (p.precio< Mayor.precio) {Mayor=p;}
+            if (p.precio> Mayor.precio) {Mayor=p;}
         }
         Console.WriteLine("inventario total: "+totalinv);
-        Console.WriteLine(" producto con mayor precio es: "+Mayor);
+        Console.WriteLine(" producto con mayor precio es: "+Mayor.nombre);
         Mayor.mostrar();
     }
     else
@@ -48,6 +48,6 @@ class Producto
     }
     public void mostrar()
     {
-        Console.WriteLine($"nombre: {nombre} | precio: {Valortotal()} | estado: {Estado()}");
+        Console.WriteLine($"nombre: {nombre} | precio stock: {Valortotal()} | estado: {Estado()}");
     }
 }
