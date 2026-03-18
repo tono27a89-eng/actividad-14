@@ -12,9 +12,22 @@ while (validar != true)
         for (int i = 0; i < lim; i++)
         {
            Producto P = new Producto();
-
+            Console.WriteLine("ingrese nombre:");P.nombre = Console.ReadLine();
+            Console.WriteLine("ingrese precio: ");P.precio= double.Parse(Console.ReadLine());
+            Console.WriteLine("ingrese cantidad: ");P.cantidad= double.Parse(Console.ReadLine());
+            productos.Add(P);
         }
-
+        double totalinv = 0;
+        Producto Mayor = productos[0];
+        foreach (Producto p in productos)
+        {
+            p.mostrar();
+            totalinv += p.cantidad;
+            if (p.precio< Mayor.precio) {Mayor=p;}
+        }
+        Console.WriteLine("inventario total: "+totalinv);
+        Console.WriteLine(" producto con mayor precio es: "+Mayor);
+        Mayor.mostrar();
     }
     else
     {
@@ -32,5 +45,9 @@ class Producto
         if (cantidad <= 10) { return "sin existencia"; }
         else if (cantidad > 10 && cantidad < 100) { return "stock bajo"; }
         else { return "stock suficiente"; }
+    }
+    public void mostrar()
+    {
+        Console.WriteLine($"nombre: {nombre} | precio: {Valortotal()} | estado: {Estado()}");
     }
 }
