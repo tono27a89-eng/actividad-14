@@ -16,12 +16,32 @@ while (validar!= true)
             if (carnet > 0 && estudiantes.ContainsKey(carnet))
             {
                 Console.WriteLine("valor invalido o ya ingresado");
+                i--;
             }
             else
             {
-
+                Estudiante e = new Estudiante();
+                Console.WriteLine("ingrese nombre: ");e.nombre = Console.ReadLine();
+                Console.WriteLine("ingrese carrera: ");e.carrera = Console.ReadLine();
+                Console.WriteLine("ingrese nota final: ");e.nota= double.Parse(Console.ReadLine());
+                estudiantes[carnet] = e;
 
             }
+        }
+        foreach ( KeyValuePair<int,Estudiante> item in estudiantes)
+        {
+            Console.WriteLine($"Carnet: {item.Key} |");item.Value.Mostrar();
+        }
+        Console.WriteLine("ingrese carnet a buscar: ");
+        int.TryParse(Console.ReadLine(),out int buscar);
+        if (buscar > 0 && estudiantes.ContainsKey (buscar))
+        {
+            Console.WriteLine("carnet encontrado: ");
+            estudiantes[buscar].Mostrar();
+        }
+        else
+        {
+            Console.WriteLine("carnet invalido");
         }
     }
     else
