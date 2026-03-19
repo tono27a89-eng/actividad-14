@@ -30,7 +30,7 @@ while (validar!= true)
         }
         foreach ( KeyValuePair<int,Estudiante> item in estudiantes)
         {
-            Console.WriteLine($"Carnet: {item.Key} |");item.Value.Mostrar();
+            Console.WriteLine($"Carnet: {item.Key} |" ); item.Value.Mostrar();
         }
         bool validar2= false;
         while (validar2 != true)
