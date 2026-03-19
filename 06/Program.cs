@@ -13,7 +13,7 @@ while (validar!= true)
         {               
             Console.WriteLine(" ingrese carnet: ");
             int.TryParse(Console.ReadLine(), out carnet);
-            if (carnet > 0 || estudiantes.ContainsKey(carnet))
+            if (carnet <= 0 || estudiantes.ContainsKey(carnet))
             {
                 Console.WriteLine("valor invalido o ya ingresado");
                 i--;
@@ -32,16 +32,20 @@ while (validar!= true)
         {
             Console.WriteLine($"Carnet: {item.Key} |");item.Value.Mostrar();
         }
-        Console.WriteLine("ingrese carnet a buscar: ");
-        int.TryParse(Console.ReadLine(),out int buscar);
-        if (buscar > 0 && estudiantes.ContainsKey (buscar))
+        bool validar2= false;
+        while (validar2 != true)
         {
-            Console.WriteLine("carnet encontrado: ");
-            estudiantes[buscar].Mostrar();
-        }
-        else
-        {
-            Console.WriteLine("carnet invalido");
+            Console.WriteLine("ingrese carnet a buscar: ");
+            int.TryParse(Console.ReadLine(), out int buscar);
+            if (buscar > 0 && estudiantes.ContainsKey(buscar))
+            {validar2=true;
+                Console.WriteLine("carnet encontrado: ");
+                estudiantes[buscar].Mostrar();
+            }
+            else
+            {
+                Console.WriteLine("carnet invalido");
+            }
         }
     }
     else
