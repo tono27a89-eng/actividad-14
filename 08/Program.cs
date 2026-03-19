@@ -15,7 +15,7 @@ while (validar!= true)
             Console.WriteLine("ingrese numero de cuenta: ");
             int.TryParse(Console.ReadLine(), out cuenta);
             if (cuenta <= 0 || cuentas.ContainsKey(cuenta))
-            { Console.WriteLine("valor invalido"); }
+            { Console.WriteLine("valor invalido"); i--; }
             else
             {
                 Cuenta c = new Cuenta();
