@@ -9,15 +9,19 @@ while (validar!= true)
     if (lim > 0)
     {
         validar = true;
-        Console.WriteLine(" ingrese carnet: ");
-        int.TryParse(Console.ReadLine(), out carnet);
-        if (carnet > 0 && estudiantes.ContainsKey(carnet))
-        {
-            Console.WriteLine("valor invalido o ya ingresado");
-        }
-        else
-        { 
+        for (int i = 0; i < lim; i++)
+        {               
+            Console.WriteLine(" ingrese carnet: ");
+            int.TryParse(Console.ReadLine(), out carnet);
+            if (carnet > 0 && estudiantes.ContainsKey(carnet))
+            {
+                Console.WriteLine("valor invalido o ya ingresado");
+            }
+            else
+            {
 
+
+            }
         }
     }
     else
