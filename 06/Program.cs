@@ -8,14 +8,17 @@ while (validar!= true)
     int.TryParse(Console.ReadLine(), out int lim);
     if (lim > 0)
     {
-        validar = true;\
+        validar = true;
         Console.WriteLine(" ingrese carnet: ");
         int.TryParse(Console.ReadLine(), out carnet);
         if (carnet > 0 && estudiantes.ContainsKey(carnet))
         {
+            Console.WriteLine("valor invalido o ya ingresado");
+        }
+        else
+        { 
 
         }
-        else { Console.WriteLine("valor invalido o ya ingresado"); }
     }
     else
     {
