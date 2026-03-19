@@ -1,4 +1,22 @@
-﻿
+﻿Dictionary<int, Producto> producto = new Dictionary<int, Producto>();
+bool validar = false;
+int codigo;
+while (validar != true)
+{
+    Console.WriteLine("ingrese la cantidad de productos a Registrar: ");
+    int.TryParse(Console.ReadLine(), out int lim);
+    if (lim > 0)
+    {
+        validar = true;
+        Console.WriteLine("ingrese codigo: ");
+        int.TryParse(Console.ReadLine(), out codigo);
+        if (codigo <= 0 || producto.ContainsKey(codigo))
+        {
+
+        }
+    }
+    else { Console.WriteLine("ingrese valor valido"); }
+}
 
 class Producto
 {
