@@ -20,13 +20,28 @@ while (validar != true)
             else
             {
                 Producto p = new Producto();
-                Console.WriteLine("ingrese nombre: ");p.nombre = Console.ReadLine();
-                Console.WriteLine("ingrese precio: ");p.precio = double.Parse(Console.ReadLine());
-                Console.WriteLine("ingrese stock: ");p.stock = double.Parse(Console.ReadLine());
-                producto.Add(codigo, p);
+                Console.WriteLine("ingrese nombre: "); p.nombre = Console.ReadLine();
+                Console.WriteLine("ingrese precio: "); p.precio = double.Parse(Console.ReadLine());
+                Console.WriteLine("ingrese stock: "); p.stock = double.Parse(Console.ReadLine());
+                producto[codigo] = p;
             }
         }
-
+        foreach (KeyValuePair<int,Producto> item in producto)
+        {
+            Console.WriteLine($"codigo no: {item.Key} | "); item.Value.Mostrar();
+        }
+        bool validar2= false;
+        while (validar2!= true)
+        {
+            Console.WriteLine("escriba el codigo del producto que desea buscar: ");
+            int.TryParse(Console.ReadLine(), out int buscar);
+            if (buscar > 0 && producto.ContainsKey(buscar) )
+            { Console.WriteLine("producto encontrado "); producto[buscar].Mostrar(); validar2 = true; }
+            else
+            {
+                Console.WriteLine("codigo invalido");
+            }
+        }
     }
     else { Console.WriteLine("ingrese valor valido"); }
 }
