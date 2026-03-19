@@ -57,8 +57,8 @@ class Producto
         {
             return "agotado";
         }
-        else if (stock < 100) { return "bajo"; }
-        else { return "normal"; }
+        else if (stock < 100) { return "bajo stock"; }
+        else { return "normal stock"; }
     }
     public void Mostrar()
     {
