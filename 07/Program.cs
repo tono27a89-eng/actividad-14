@@ -8,12 +8,25 @@ while (validar != true)
     if (lim > 0)
     {
         validar = true;
-        Console.WriteLine("ingrese codigo: ");
-        int.TryParse(Console.ReadLine(), out codigo);
-        if (codigo <= 0 || producto.ContainsKey(codigo))
+        for (int i = 0; i < lim; i++)
         {
-
+            Console.WriteLine("ingrese codigo: ");
+            int.TryParse(Console.ReadLine(), out codigo);
+            if (codigo <= 0 || producto.ContainsKey(codigo))
+            {
+                Console.WriteLine(" codigo invalido. ");
+                i--;
+            }
+            else
+            {
+                Producto p = new Producto();
+                Console.WriteLine("ingrese nombre: ");p.nombre = Console.ReadLine();
+                Console.WriteLine("ingrese precio: ");p.precio = double.Parse(Console.ReadLine());
+                Console.WriteLine("ingrese stock: ");p.stock = double.Parse(Console.ReadLine());
+                producto.Add(codigo, p);
+            }
         }
+
     }
     else { Console.WriteLine("ingrese valor valido"); }
 }
