@@ -1,5 +1,40 @@
-﻿Dictionary<int, Cuenta> cuentas = new Dictionary<int, Cuenta>();
+﻿using System.ComponentModel.Design;
 
+Dictionary<int, Cuenta> cuentas = new Dictionary<int, Cuenta>();
+bool validar=false;
+int cuenta;
+while (validar!= true)
+{
+    Console.WriteLine("ingrese la cantidad de cuentas a registrar: ");
+    int.TryParse(Console.ReadLine(), out int lim);
+    if (lim > 0)
+    {
+        for (int i = 0; i < lim; i++)
+        {
+            Console.WriteLine("ingrese numero de cuenta: ");
+            int.TryParse(Console.ReadLine(), out cuenta);
+            if (cuenta <= 0 || cuentas.ContainsKey(cuenta))
+            { Console.WriteLine("valor invalido"); }
+            else
+            {
+                Cuenta c = new Cuenta();
+                Console.WriteLine("ingrese nombre de titular: ");c.titular = Console.ReadLine();
+                Console.WriteLine(" ingrese saldo: ");c.saldo= double.Parse(Console.ReadLine());
+                cuentas[cuenta]= c;
+            }
+        }
+        Console.WriteLine("ingrese numero de cuenta a que desea depositar: ");
+        int.TryParse(Console.ReadLine(), out cuenta);
+        if(cuenta > 0&& cuentas.ContainsKey(cuenta))
+        {
+            Console.WriteLine("ingrese monto: ");
+            double.TryParse(Console.ReadLine(), out double depo);
+            cuentas[cuenta].Depositar(depo);
+        }
+        else { Console.WriteLine("cuenta no encontrada"); }
+    }
+    else { Console.WriteLine("valor invalido"); }
+}
 
 
 class Cuenta
